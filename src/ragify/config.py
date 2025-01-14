@@ -23,11 +23,15 @@ _load_local_env()
 # Try to load Streamlit secrets (cloud deployment)
 try:
     import streamlit as st
-    if hasattr(st, 'secrets'):
-        for key, value in st.secrets.items():
-            os.environ[key] = str(value)
+    if hasattr(st, "secrets"):
+        try:
+            for key, value in st.secrets.items():
+                os.environ[key] = str(value)
+        except Exception:
+            # st.secrets raises when no secrets.toml is configured; safe to ignore locally
+            pass
 except ImportError:
-    pass  # Streamlit not installed or not running
+    st = None  # Streamlit not installed or not running
 
 
 class Settings(BaseSettings):
