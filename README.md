@@ -1,4 +1,4 @@
-# 🧠 RAGify
+# RAGify
 
 Ask questions about your PDF files using AI.
 
