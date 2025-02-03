@@ -1,7 +1,7 @@
 [project]
-name = "ragproductionapp"
+name = "ragify"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-powered Retrieval-Augmented Generation system for querying PDF documents"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,9 +9,19 @@ dependencies = [
     "inngest>=0.5.10",
     "llama-index-core>=0.14.5",
     "llama-index-readers-file>=0.5.4",
+    "anthropic>=0.24.0",
     "openai>=2.6.0",
     "python-dotenv>=1.1.1",
+    "pydantic-settings>=2.0.0",
     "qdrant-client>=1.15.1",
     "streamlit>=1.50.0",
     "uvicorn>=0.38.0",
 ]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["ragify"]
